@@ -11,6 +11,7 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.new(friendship_params)
 
     if @friendship.save
+      flash[:notice] = 'Friendship was saved correctly.'
       redirect_to users_path
     else
       render 'new'
@@ -21,8 +22,10 @@ class FriendshipsController < ApplicationController
     @friendship = Friendship.find(params[:id])
 
     if @friendship.update_attributes(friendship_params)
+      flash[:notice] = 'Friendship was confirmed correctly.'
       redirect_to users_path
     else
+      flash[:notice] = 'Friendship was not modified.'
       redirect_to users_path
     end
   end
@@ -30,6 +33,7 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship = Friendship.find(params[:id])
     @friendship.destroy
+    flash[:notice] = 'Friendship was rejected.'
     redirect_to users_path
   end
 end
