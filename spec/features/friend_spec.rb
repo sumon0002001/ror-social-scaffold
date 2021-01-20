@@ -1,3 +1,5 @@
+# rubocop:disable Metrics/BlockLength
+
 require 'rails_helper'
 
 feature 'Friend actions', type: :feature do
@@ -56,3 +58,5 @@ feature 'Friend actions', type: :feature do
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength
