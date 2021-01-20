@@ -92,6 +92,7 @@ module ApplicationHelper
 
   def name_tag
     return unless current_user
+
       content_tag(:span) do
         current_user.name
       end
