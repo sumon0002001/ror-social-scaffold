@@ -1,41 +1,19 @@
-# rubocop:disable Style/IdenticalConditionalBranches
-
 class FriendshipsController < ApplicationController
-  include FriendshipsHelper
-
-  def index
-    @friendships = Friendship.all
-  end
-
   def create
-    @friendship = Friendship.new(friendship_params)
-
-    if @friendship.save
-      flash[:notice] = 'Friendship was saved correctly.'
-      redirect_to users_path
-    else
-      render 'new'
-    end
+    Friendship.create(user_id: params[:user_id], friend_id: params[:friend_id])
+    redirect_to users_path
   end
 
   def update
-    @friendship = Friendship.find(params[:id])
-
-    if @friendship.update_attributes(friendship_params)
-      flash[:notice] = 'Friendship was confirmed correctly.'
-      redirect_to users_path
-    else
-      flash[:notice] = 'Friendship was not modified.'
-      redirect_to users_path
-    end
+    @user = User.find(params[:id])
+    @friend = Friendship.find_by(user_id: params[:user_id], friend_id: params[:friend_id])
+    @friend.update(status: true)
+    redirect_to user_path
   end
 
   def destroy
-    @friendship = Friendship.find(params[:id])
-    @friendship.destroy
-    flash[:notice] = 'Friendship was rejected.'
-    redirect_to users_path
+    @friend = Friendship.find_by(user_id: params[:user_id], friend_id: params[:friend_id])
+    @friend.destroy
+    redirect_to user_path
   end
 end
-
-# rubocop:enable Style/IdenticalConditionalBranches

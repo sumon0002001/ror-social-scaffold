@@ -4,8 +4,6 @@
     <title>RorSocialScaffold</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -19,27 +17,11 @@
         <div class="menu-item">
           <%= menu_link_to 'All users', users_path %>
         </div>
-        <div class="menu-item">
-          <%cu_name%>
-          <h2><%=@cu_name%></h2>
-        </div>
       </div>
-      <% if current_user %>
-        <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to 'Sign in', user_session_path %>
-      <% end %>
+        <%= name_tag %>
+        <%= sign_in_out_btn %>
     </nav>
-    <% if notice.present? %>
-      <div class="notice">
-        <p> <%= notice %> </p>
-      </div>
-    <% end %>
-    <% if alert.present? %>
-      <div class="alert">
-        <p> <%= alert %> </p>
-      </div>
-    <% end %>
+    <%= notice_alert_msg %>
     <main class="main">
       <%= yield %>
     </main>
