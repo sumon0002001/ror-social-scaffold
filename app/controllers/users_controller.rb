@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     @posts = @user.posts.ordered_by_most_recent
+    @posts = @user.posts.ordered_by_most_recent
     show_requests
   end
 
