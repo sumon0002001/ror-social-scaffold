@@ -1,5 +1,3 @@
-# rubocop:disable Layout/LineLength
-
 class Friendship < ApplicationRecord
   validate :check_status, on: :create
   after_update :make_friendship_official
@@ -18,5 +16,3 @@ class Friendship < ApplicationRecord
     Friendship.create(user_id: friend_id, friend_id: user_id, status: true)
   end
 end
-
-# rubocop:enable Layout/LineLength

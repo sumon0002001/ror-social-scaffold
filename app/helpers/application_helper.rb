@@ -91,11 +91,10 @@ module ApplicationHelper
   end
 
   def name_tag
-    if current_user
+    return unless current_user
       content_tag(:span) do
         current_user.name
       end
-    end
   end
 
   def sign_in_out_btn
