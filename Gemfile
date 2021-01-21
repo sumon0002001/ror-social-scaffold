@@ -26,8 +26,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-# Install wdm Gem if the platform is Windows
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
@@ -42,10 +41,16 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :test do
+  gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'rspec'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', '~>4.2'
 end
 
 group :development do
@@ -53,7 +58,7 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.85.1'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
