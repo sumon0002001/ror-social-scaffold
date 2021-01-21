@@ -11,7 +11,7 @@
 
 ## Live Demo
 
-- [Social Media app]()
+- [Social Media app](https://social-application.herokuapp.com/)
 
 ## Getting Started
 
@@ -66,6 +66,11 @@ Open `http://localhost:3000/` in your browser.
 ```
 
 ## Authors
+👤 **Mir Rawshan Ali**
+
+- GitHub: [@sumon0002009](https://github.com/sumon0002001)
+- Twitter: [@sumon0002009](https://twitter.com/Sumon0002009)
+- LinkedIn: [Mir Rawshan Ali](https://www.linkedin.com/in/mir-rawshan-ali-27b6a5198/)
 
 
 ## 🤝 Contributing
