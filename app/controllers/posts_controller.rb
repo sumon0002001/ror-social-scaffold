@@ -1,4 +1,3 @@
-# rubocop: disable  Layout/LineLength
 class PostsController < ApplicationController
   before_action :authenticate_user!
 
@@ -21,11 +20,10 @@ class PostsController < ApplicationController
   private
 
   def timeline_posts
-    @timeline_posts ||= Post.all.ordered_by_most_recent.where(user_id: current_user.friends).or(Post.all.ordered_by_most_recent.where(user_id: current_user.id))
+    @timeline_posts ||= Post.visible_posts(current_user).ordered_by_most_recent
   end
 
   def post_params
     params.require(:post).permit(:content)
   end
 end
-# rubocop: enable  Layout/LineLength
